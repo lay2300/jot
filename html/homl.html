@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agri-Job Finder — Modern UI</title>
+    <link rel="stylesheet" href="../CSS/index.css" />
+</head>
+<body>
+
+    <div class="hero">
+        <h1>🔍 Agri-Job Finder</h1>
+        <p>ค้นหาผู้ให้บริการด้านการเกษตรได้อย่างรวดเร็วและทันสมัย</p>
+    </div>
+
+    <div class="search-box">
+        <select id="job-type">
+            <option value="">เลือกประเภทงาน</option>
+            <option value="เกี่ยวข้าว">เกี่ยวข้าว (คน)</option>
+            <option value="รถเกี่ยว">บริการรถเกี่ยว</option>
+            <option value="ดำนา">ดำนา/ปักดำ</option>
+            <option value="รถดำนา">บริการรถดำนา</option>
+            <option value="ไถนา">ไถนา/เตรียมดิน</option>
+            <option value="ฉีดยา">ฉีดพ่นสารเคมี/โดรน</option>
+            <option value="อื่นๆ">อื่นๆ</option>
+        </select>
+
+        <input type="text" id="location" placeholder="เช่น เลย หรือ ขอนแก่น" />
+
+        <button onclick="searchJobs()">ค้นหา</button>
+
+    </div>
+
+    <div class="img">
+        <div class="item"><img src="../img/1.4.513-×-395-pixel.avif" alt="ภาพประกอบ 1"></div>
+        <div class="item"><img src="../img/202009-04-110047_2f-0.jpg" alt="ภาพประกอบ 2"></div>
+        <div class="item"><img src="../img/201907-11-154358_Ky-1.jpg" alt="ภาพประกอบ 3"></div>
+        <div class="item"><img src="../img/SPV-6-ติดร่ม-หันหน้า-เอียงหน้ารถไปทางซ้าย-HL.webp" alt="ภาพประกอบ 4"></div>
+    </div>
+
+    <!-- MODAL RESULTS -->
+    <div id="resultsModal" class="modal">
+        <div class="modal-content">
+
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+
+            <h2>ผลลัพธ์: <span id="modalLocationHeader"></span></h2>
+            <p>ประเภทงาน: <strong id="modalJobTypeHeader"></strong></p>
+
+            <div class="layout">
+                <div class="results-list" id="modalResultsBody"></div>
+
+                <div class="map-area">
+                    <h3>📍 แผนที่พื้นที่บริการ</h3>
+                    <div id="map-container">
+                        <iframe id="map-iframe" width="100%" height="100%" frameborder="0"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/index.js"></script>
+</body>
+</html>
