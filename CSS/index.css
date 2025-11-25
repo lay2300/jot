@@ -209,6 +209,28 @@
             filter: saturate(1.05) contrast(1.03);
         }
 
+        /* Tooltip (custom) */
+        .img .item[data-tooltip] { position: relative; }
+        .img .item[data-tooltip]::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            bottom: 12px;
+            white-space: nowrap;
+            background: rgba(0,0,0,0.78);
+            color: #fff;
+            font-size: 0.9rem;
+            padding: 6px 10px;
+            border-radius: 8px;
+            opacity: 0;
+            pointer-events: none;
+            transition: .18s ease;
+            z-index: 5;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+        }
+        .img .item[data-tooltip]:hover::after { opacity: 1; transform: translateX(-50%) translateY(0); }
+
         @media (max-width:480px) {
             .img .item img { height: 140px; }
         }
