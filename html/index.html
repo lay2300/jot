@@ -31,11 +31,35 @@
 
     </div>
 
-    <div class="img">
-        <div class="item" data-tooltip="เกษตรกรกำลังเกี่ยวข้าวด้วยมือ"><img src="../img/1.4.513-×-395-pixel.avif" alt="ภาพประกอบ 1" title="เกษตรกรกำลังเกี่ยวข้าวด้วยมือ"></div>
-        <div class="item" data-tooltip="รถเกี่ยวกำลังทำงานในนาข้าว"><img src="../img/202009-04-110047_2f-0.jpg" alt="ภาพประกอบ 2" title="รถเกี่ยวกำลังทำงานในนาข้าว"></div>
-        <div class="item" data-tooltip="ชาวนากำลังเตรียมดินและปลูกต้นกล้า"><img src="../img/201907-11-154358_Ky-1.jpg" alt="ภาพประกอบ 3" title="ชาวนากำลังเตรียมดินและปลูกต้นกล้า"></div>
-        <div class="item" data-tooltip="บริการตรวจสอบและซ่อมแซมเครื่องจักรเกษตร"><img src="../img/SPV-6-ติดร่ม-หันหน้า-เอียงหน้ารถไปทางซ้าย-HL.webp" alt="ภาพประกอบ 4" title="บริการตรวจสอบและซ่อมแซมเครื่องจักรเกษตร"></div>
+    <!-- Filter bar for gallery -->
+    <div class="filter-bar" role="toolbar" aria-label="ตัวกรองรูปภาพ">
+        <button class="filter-btn active" data-filter="all">ทั้งหมด</button>
+        <button class="filter-btn" data-filter="เกี่ยวข้าว">เกี่ยวข้าว</button>
+        <button class="filter-btn" data-filter="รถเกี่ยว">รถเกี่ยว</button>
+        <button class="filter-btn" data-filter="ดำนา">ดำนา</button>
+        <button class="filter-btn" data-filter="ซ่อมแซม">ซ่อมแซม</button>
+    </div>
+
+    <div class="img" aria-live="polite">
+        <div class="item" data-tooltip="เกษตรกรกำลังเกี่ยวข้าวด้วยมือ" data-category="เกี่ยวข้าว" data-description="ภาพเกษตรกรกำลังเกี่ยวข้าวด้วยมือ"><img loading="lazy" src="../img/1.4.513-×-395-pixel.avif" alt="เกษตรกรกำลังเกี่ยวข้าว" title="เกษตรกรกำลังเกี่ยวข้าวด้วยมือ"><div class="overlay"><span class="badge">เกี่ยวข้าว</span><button class="view-btn" aria-label="ดูรายละเอียดรูปภาพ">รายละเอียด</button></div></div>
+        <div class="item" data-tooltip="รถเกี่ยวกำลังทำงานในนาข้าว" data-category="รถเกี่ยว" data-description="รถเกี่ยวกำลังเก็บเกี่ยวในนาข้าว"><img loading="lazy" src="../img/202009-04-110047_2f-0.jpg" alt="รถเกี่ยวกำลังเก็บเกี่ยว" title="รถเกี่ยวกำลังทำงานในนาข้าว"><div class="overlay"><span class="badge">รถเกี่ยว</span><button class="view-btn" aria-label="ดูรายละเอียดรูปภาพ">รายละเอียด</button></div></div>
+        <div class="item" data-tooltip="ชาวนากำลังเตรียมดินและปลูกต้นกล้า" data-category="ดำนา" data-description="การเตรียมดินและปลูกต้นกล้าเพื่อเริ่มฤดูกาล"><img loading="lazy" src="../img/201907-11-154358_Ky-1.jpg" alt="เตรียมดินและปลูกต้นกล้า" title="ชาวนากำลังเตรียมดินและปลูกต้นกล้า"><div class="overlay"><span class="badge">ดำนา</span><button class="view-btn" aria-label="ดูรายละเอียดรูปภาพ">รายละเอียด</button></div></div>
+        <div class="item" data-tooltip="บริการตรวจสอบและซ่อมแซมเครื่องจักรเกษตร" data-category="ซ่อมแซม" data-description="ทีมงานบริการตรวจสอบและซ่อมแซมเครื่องจักรเพื่อให้ใช้งานได้อย่างปลอดภัย"><img loading="lazy" src="../img/SPV-6-ติดร่ม-หันหน้า-เอียงหน้ารถไปทางซ้าย-HL.webp" alt="บริการซ่อมเครื่องจักร" title="บริการตรวจสอบและซ่อมแซมเครื่องจักรเกษตร"><div class="overlay"><span class="badge">ซ่อมแซม</span><button class="view-btn" aria-label="ดูรายละเอียดรูปภาพ">รายละเอียด</button></div></div>
+    </div>
+
+    <!-- IMAGE MODAL -->
+    <div id="imageModal" class="modal image-modal" aria-hidden="true">
+        <div class="modal-content image-modal-content" role="dialog" aria-modal="true" aria-labelledby="imageModalTitle">
+            <button class="nav prev" id="imagePrev" aria-label="ภาพก่อนหน้า">‹</button>
+            <button class="nav next" id="imageNext" aria-label="ภาพถัดไป">›</button>
+            <span class="close-btn" id="imageModalClose" aria-label="ปิดภาพ">&times;</span>
+            <h3 id="imageModalTitle"></h3>
+            <div class="image-modal-body">
+                <img id="imageModalImg" src="" alt="" />
+                <p id="imageModalDesc"></p>
+                <div class="image-modal-actions"><a id="imageDownload" class="view-btn" download>ดาวน์โหลด</a></div>
+            </div>
+        </div>
     </div>
 
     <!-- MODAL RESULTS -->
